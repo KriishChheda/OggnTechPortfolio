@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, ExternalLink, Download, Menu, X, Star, Calendar, ChevronDown,Users, Award } from 'lucide-react';
 import { Typewriter } from 'react-simple-typewriter';
 
@@ -7,15 +7,26 @@ const PortfolioWebsite = () => {
 // both of these are for the skill section
 
 const [visible, setVisible] = useState(false);
-useEffect(() => {
-    // Trigger animation after mount
-    const timeout = setTimeout(() => {
-      setVisible(true);
-    }, 100); // short delay for visual effect
-    return () => clearTimeout(timeout);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 } // triggers when 30% of section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
-
-
 // Configuration object to show/hide sections
   const [sectionConfig] = useState({
     hero: true,
@@ -342,8 +353,9 @@ useEffect(() => {
 
       {/* Skills Section */}
       {sectionConfig.skills && (
-        <section id="skills" className="py-20 bg-gray-50">
+    <section ref={sectionRef} id="skills" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Skills</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
@@ -372,7 +384,6 @@ useEffect(() => {
     </section>
       )}
 
-      {/* Experience Section */}
       {sectionConfig.experience && (
         <section id="experience" className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
