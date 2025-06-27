@@ -60,7 +60,7 @@ const [visible, setVisible] = useState(false);
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   // if you have your own skills you can add it here in this array of object
   const skills = [
     { name: "JavaScript", level: 90 },
@@ -226,14 +226,14 @@ const [visible, setVisible] = useState(false);
             </div>
 
             <div className="hidden md:flex space-x-8">
-              {sectionConfig.hero && <button onClick={() => scrollToSection('hero')} className="text-gray-600 hover:text-blue-600 transition-colors">Home</button>}
-              {sectionConfig.about && <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors">About</button>}
-              {sectionConfig.skills && <button onClick={() => scrollToSection('skills')} className="text-gray-600 hover:text-blue-600 transition-colors">Skills</button>}
-              {sectionConfig.experience && <button onClick={() => scrollToSection('experience')} className="text-gray-600 hover:text-blue-600 transition-colors">Experience</button>}
-              {sectionConfig.projects && <button onClick={() => scrollToSection('projects')} className="text-gray-600 hover:text-blue-600 transition-colors">Projects</button>}
-              {sectionConfig.products && <button onClick={() => scrollToSection('products')} className="text-gray-600 hover:text-blue-600 transition-colors">Products</button>}
-              {sectionConfig.services && <button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-blue-600 transition-colors">Services</button>}
-              {sectionConfig.contact && <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors">Contact</button>}
+              {sectionConfig.hero && <button onClick={() => scrollToSection('hero')} className="text-white hover:text-blue-600 transition-colors">Home</button>}
+              {sectionConfig.about && <button onClick={() => scrollToSection('about')} className="text-white hover:text-blue-600 transition-colors">About</button>}
+              {sectionConfig.skills && <button onClick={() => scrollToSection('skills')} className="text-white hover:text-blue-600 transition-colors">Skills</button>}
+              {sectionConfig.experience && <button onClick={() => scrollToSection('experience')} className="text-white hover:text-blue-600 transition-colors">Experience</button>}
+              {sectionConfig.projects && <button onClick={() => scrollToSection('projects')} className="text-white hover:text-blue-600 transition-colors">Projects</button>}
+              {sectionConfig.products && <button onClick={() => scrollToSection('products')} className="text-white hover:text-blue-600 transition-colors">Products</button>}
+              {sectionConfig.services && <button onClick={() => scrollToSection('services')} className="text-white hover:text-blue-600 transition-colors">Services</button>}
+              {sectionConfig.contact && <button onClick={() => scrollToSection('contact')} className="text-white   hover:text-blue-600 transition-colors">Contact</button>}
             </div>
 
             {/* Section config is an object which has several keys , each having either a true or a false as a value. If its true only then the button correspinding to that section will be shown.*/}
@@ -291,10 +291,14 @@ const [visible, setVisible] = useState(false);
           >
             Get In Touch
           </button>
-          <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-all font-medium flex items-center justify-center gap-2">
+            <a
+            href="/sample-cv.pdf"
+            download
+            className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-all font-medium flex items-center justify-center gap-2"
+            >
             <Download className="h-4 w-4" />
             Download CV
-          </button>
+            </a>
         </div>
 
         {/* Scroll Down Indicator */}
@@ -312,7 +316,7 @@ const [visible, setVisible] = useState(false);
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
               {/* Blue underline below the About Me, u can change the colour based on your taste */}
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div> 
+             <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -351,7 +355,7 @@ const [visible, setVisible] = useState(false);
         </section>
       )}
 
-      {/* Skills Section */}
+
    {/* Skills Section */}
 {sectionConfig.skills && (
   <section ref={sectionRef} id="skills" className="py-20 bg-gray-50">
@@ -359,7 +363,7 @@ const [visible, setVisible] = useState(false);
 
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Skills</h2>
-        <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+        <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -393,7 +397,7 @@ const [visible, setVisible] = useState(false);
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Experience</h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="space-y-8">
               {experiences.map((exp, index) => (
@@ -422,7 +426,7 @@ const [visible, setVisible] = useState(false);
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Projects</h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
@@ -460,7 +464,7 @@ const [visible, setVisible] = useState(false);
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Products</h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map((product, index) => (
@@ -493,7 +497,7 @@ const [visible, setVisible] = useState(false);
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Services</h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
@@ -515,7 +519,7 @@ const [visible, setVisible] = useState(false);
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Testimonials</h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
@@ -541,7 +545,7 @@ const [visible, setVisible] = useState(false);
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Education</h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="space-y-6">
               {education.map((edu, index) => (
@@ -569,7 +573,7 @@ const [visible, setVisible] = useState(false);
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Certifications</h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {certifications.map((cert, index) => (
@@ -589,11 +593,11 @@ const [visible, setVisible] = useState(false);
 
       {/* Contact Section */}
       {sectionConfig.contact && (
-        <section id="contact" className="py-20 bg-gray-900 text-white">
+        <section id="contact" className="py-20 bg-black text-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
-              <div className="w-20 h-1 bg-blue-500 mx-auto"></div>
+              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
@@ -686,16 +690,6 @@ const [visible, setVisible] = useState(false);
           </div>
         </section>
       )}
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-gray-300">&copy; 2025 {userData.name}. All rights reserved.</p>
-            <p className="text-gray-400 mt-2">Built with React & Tailwind CSS</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
