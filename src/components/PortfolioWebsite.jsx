@@ -218,10 +218,10 @@ const [visible, setVisible] = useState(false);
   return (
     <div className="min-h-screen bg-gray-50">
 
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+      <nav className="fixed top-0 w-full bg-black backdrop-blur-sm z-50 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div style={{ fontFamily: '"Satisfy", cursive' }} className="text-3xl text-indigo-700">
+            <div style={{ fontFamily: '"Satisfy", cursive' }} className="text-3xl text-indigo-400">
                 {userData.name}
             </div>
 
@@ -264,11 +264,11 @@ const [visible, setVisible] = useState(false);
 
       {/* Hero Section */}
     {sectionConfig.hero && (
-    <section id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-24"
+    <section id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-100 pt-24"
     >
       <div className="max-w-4xl mx-auto px-6 py-20 text-center relative z-10">
         <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
-          Hi, I'm <span className="text-blue-600">{userData.name}</span>
+          Hi, I'm <span className="text-blue-700">{userData.name}</span>
         </h1>
 
         <h2 className="text-xl sm:text-2xl text-gray-600 mb-6">
@@ -307,7 +307,7 @@ const [visible, setVisible] = useState(false);
 
       {/* About Section */}
       {sectionConfig.about && (
-        <section id="about" className="py-20 bg-white">
+        <section id="about" className="py-20 ">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
@@ -352,37 +352,41 @@ const [visible, setVisible] = useState(false);
       )}
 
       {/* Skills Section */}
-      {sectionConfig.skills && (
-    <section ref={sectionRef} id="skills" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+   {/* Skills Section */}
+{sectionConfig.skills && (
+  <section ref={sectionRef} id="skills" className="py-20 bg-gray-50">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Skills</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {skills.map((skill, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-medium text-gray-900">{skill.name}</span>
-                <span className="text-blue-600 font-medium">{skill.level}%</span>
-              </div>
-
-              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                <div
-                  className="bg-blue-600 h-2 rounded-full transition-all duration-1000 ease-out"
-                  style={{
-                    width: visible ? `${skill.level}%` : '0%',
-                  }}
-                ></div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="text-center mb-16">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Skills</h2>
+        <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
       </div>
-    </section>
-      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {skills.map((skill, index) => (
+          <div
+            key={index}
+            className=" bg-white p-6 rounded-lg shadow-md transition duration-300 border-2 border-transparent hover:border-indigo-400"
+          >
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-medium text-gray-900 group-hover:text-white">{skill.name}</span>
+              <span className="text-blue-600 font-medium group-hover:text-white">{skill.level}%</span>
+            </div>
+
+            <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+              <div
+                className="bg-blue-600 h-2 rounded-full transition-all duration-1000 ease-out"
+                style={{
+                  width: visible ? `${skill.level}%` : '0%',
+                }}
+              ></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
       {sectionConfig.experience && (
         <section id="experience" className="py-20 bg-white">
@@ -393,7 +397,7 @@ const [visible, setVisible] = useState(false);
             </div>
             <div className="space-y-8">
               {experiences.map((exp, index) => (
-                <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md">
+                <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md transition duration-300 hover:scale-105">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">{exp.title}</h3>
@@ -422,7 +426,7 @@ const [visible, setVisible] = useState(false);
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow hover:scale-105">
                   <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
@@ -515,7 +519,7 @@ const [visible, setVisible] = useState(false);
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md">
+                <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md hover:scale-105">
                   <p className="text-gray-700 mb-4 italic">"{testimonial.content}"</p>
                   <div className="flex items-center gap-4">
                     <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover" />
@@ -541,7 +545,7 @@ const [visible, setVisible] = useState(false);
             </div>
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:border-2 hover:border-indigo-400">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">{edu.degree}</h3>
